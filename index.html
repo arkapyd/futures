@@ -83,39 +83,67 @@
         // this object holds the entire story tree
         const storyData = {
             start: {
-                text: "the midnight rain in bengaluru taps gently against the glass. the room is entirely quiet, save for the faint glow of the city lights bleeding through the blinds. a sleek, black envelope rests on the table in front of you.",
+                text: "<p>it's getting late. you had promised me you'd be there on time, but it was already ten past six now, and you hadn't even sorted out what to wear. knowing me, you knew i would be there at the café in twenty minutes' time, not a minute here or there. you rush about, pausing to fix your hair in the mirror, to dab at your lips with the lip-gloss. </p> <p> a smile here, as you wonder how long that lip gloss would get to stay on anyway. </p> <p> you look at your face, satisfied. then your eyes wander down your body. ",
                 choices: [
-                    { text: "open the envelope", target: "node_open" },
-                    { text: "leave it and walk to the window", target: "node_window" },
-                    { text: "turn off the final light", target: "node_dark" }
+                    { text: "everything looks perfect as it is. it's getting late anyway.", target: "node_bag" },
+                    { text: "oh, i don't know. maybe different set of underwear? i know where this night is headed.", target: "node_underwear" },
+                    { text: "the top, maybe. a kurti? or a dress?", target: "node_wardrobe" }
                 ]
             },
             
             // iteration 1 placeholders
-            node_open: {
-                text: "inside is a single, heavy card. the handwriting is instantly familiar.",
+            node_bag: {
+                text: "<p>this was the right choice, given the time constraints. you know i love how you look anyway, wearing anything or nothing. you grab your little black purse, and peer inside.</p> <p> hmm. better to stuff in a few things before i head out. </p>",
                 choices: [
-                    { text: "read it now", target: "start" }, // temporarily looping back
-                    { text: "put it in your pocket", target: "start" },
-                    { text: "burn it", target: "start" }
+                    { text: "maybe i'll just carry the stick of lip-gloss. god knows it's going to have to come out at least once.", target: "node_lipgloss" }, 
+                    { text: "hmm. should i take a condom or two? ", target: "node_condom" },
+                    { text: "your gift! i nearly forgot.", target: "node_gift" }
                 ]
             },
-            node_window: {
-                text: "you step toward the glass. down on the street, someone is looking up right at you.",
+            node_underwear: {
+                text: "how silly, you think. the make-up and hair is in place. why go to the trouble of changing all the way through?",
                 choices: [
-                    { text: "step back into the shadows", target: "start" },
-                    { text: "open the window", target: "start" },
-                    { text: "stare back", target: "start" }
+                    { text: "better get the purse sorted out.", target: "node_bag" },
+                    { text: "oh! i nearly missed your gift. better grab it on my way out.", target: "node_gift" },
+                    { text: "i must hurry now, just look at the time!", target: "node_nothing" }
                 ]
             },
-            node_dark: {
-                text: "the room plunges into absolute darkness. suddenly, you hear a soft click from the door.",
+            node_wardrobe: {
+                text: "there is not a chance you can get changed now, and besides, the hair and everything else sits quite prettily, you think to yourself. ",
                 choices: [
-                    { text: "hold your breath", target: "start" },
-                    { text: "ask who's there", target: "start" },
-                    { text: "move towards the sound", target: "start" }
+                    { text: "i should just get my purse and check everything now.", target: "node_bag" },
+                    { text: "wait. i nearly forgot about your gift!", target: "node_gift" },
+                    { text: "forget everything; it's late and he's not going to like to sit by himself, waiting for me. i must leave.", target: "node_nothing" }
                 ]
-            }
+            },
+            node_gift: {
+                text: "it sits wrapped on the desk, just under the mirror, a little rectangular box. the paper crinkles against your touch as you put it into your black purse. ",
+                choices: [
+                    { text: "okay. i have everything now. i need to run, now.", target: "node_out" },
+                    { text: "i think i am forgetting something. agh. can't help it, i am late! time to go.", target: "node_out" }
+                ]
+            },
+            node_nothing: {
+                text: "it is so late already. you like it when i joke about your tardiness and call you my babysloth, and the like, but sometimes you can sense that you test my patience with your habit of never being on time. <p> no more of that, you think, as you rush out the door, hurriedly locking it, and bracing to go out into the chill of the October night in Leh. </p> ",
+                choices: [
+                    { text: "it's...cold outside.", target: "node_out" }
+                ]
+            },
+            node_lipgloss: {
+                text: "we haven't met in weeks. there's bound to be at least one episode of me attacking you, you think. good idea to keep the lipgloss on; in this weather, kisses of the angry, passionate kind - the kind you are sure i will assault you with tonight - drain lips of moisture quicker than anything else. ",
+                choices: [
+                    { text: "okay, i am finally done, i think. time to go.", target: "node_out" },
+                    { text: "i think i am forgetting something. agh. can't help it, i am late! time to go.", target: "node_out" }
+                ]
+            },
+            node_condom: {
+                text: "knowing me, you know i will not want to keep my hands off you for long. and you are not opposed to the idea of taking it all the way. you know i will find a way to make it happen, if it is to happen. ",
+                choices: [
+                    { text: "better safe than sorry. heh. anyway, time to go now.", target: "node_out" },
+                    { text: "i think i am forgetting something. agh. can't help it, i am late! time to go.", target: "node_out" }
+                ]
+            },
+            
         };
 
         // function to render the current node
