@@ -131,7 +131,7 @@
                 text: "how silly, you think. the make-up and hair is in place. why go to the trouble of changing all the way through?",
                 choices: [
                     { text: "better get the purse sorted out.", target: "node_bag" },
-                    { text: "oh! i nearly missed your gift. better grab it on my way out.", target: "node_gift" },
+                    { text: "oh! i nearly missed his gift. better grab it on my way out.", target: "node_gift" },
                     { text: "i must hurry now, just look at the time!", target: "node_nothing" }
                 ]
             },
@@ -139,7 +139,7 @@
                 text: "there is not a chance you can get changed now, and besides, the hair and everything else sits quite prettily, you think to yourself. ",
                 choices: [
                     { text: "i should just get my purse and check everything now.", target: "node_bag" },
-                    { text: "wait. i nearly forgot about your gift!", target: "node_gift" },
+                    { text: "wait. i nearly forgot about his gift!", target: "node_gift" },
                     { text: "forget everything; it's late and he's not going to like to sit by himself, waiting for me. i must leave.", target: "node_nothing" }
                 ]
             },
@@ -187,6 +187,14 @@
                 ]
             },
             node_shop: {
+                text: "<p> October in Leh. Nearly November, in fact. It is already dark out, and the chill was knifing through the air across your cheeks. you had on a white cotton top and a suede jacket: enough for a winter back home, not here. you can here me commenting on your inability to calibrate your wardrobe for the cold even when it had already been over six months here. </p> <p> you smile to yourself. if you hadn't been in such a hurry, you would have dressed better for the cold, but then again, it came down to time management. you could practically hear me say it all. </p>",
+                choices: [
+                    { text: "well, he's kind of right. i just don't like it that he is so smug about it. oh, what the hell.", target: "node_shop" },
+                    { text: "he knows me for what, six years now? he knows i am going to be late or ill-dressed or otherwise unprepared. what does it matter, anyway? ", target: "node_shop" },
+                    { text: "god, it's real chilly out here tonight.", target: "node_shop" }
+                ]
+            },
+             node_shopgift: {
                 text: "<p> October in Leh. Nearly November, in fact. It is already dark out, and the chill was knifing through the air across your cheeks. you had on a white cotton top and a suede jacket: enough for a winter back home, not here. you can here me commenting on your inability to calibrate your wardrobe for the cold even when it had already been over six months here. </p> <p> you smile to yourself. if you hadn't been in such a hurry, you would have dressed better for the cold, but then again, it came down to time management. you could practically hear me say it all. </p>",
                 choices: [
                     { text: "well, he's kind of right. i just don't like it that he is so smug about it. oh, what the hell.", target: "node_shop" },
