@@ -119,8 +119,8 @@
             node_gift: {
                 text: "it sits wrapped on the desk, just under the mirror, a little rectangular box. the paper crinkles against your touch as you put it into your black purse. ",
                 choices: [
-                    { text: "okay. i have everything now. i need to run, now.", target: "node_out" },
-                    { text: "i think i am forgetting something. agh. can't help it, i am late! time to go.", target: "node_out" }
+                    { text: "okay. i have everything now. i need to run, now.", target: "node_out_gift" },
+                    { text: "i think i am forgetting something. agh. can't help it, i am late! time to go.", target: "node_out_gift" }
                 ]
             },
             node_nothing: {
@@ -149,6 +149,14 @@
                     { text: "well, he's kind of right. i just don't like it that he is so smug about it. oh, what the hell.", target: "node_shop" },
                     { text: "he knows me for what, six years now? he knows i am going to be late or ill-dressed or otherwise unprepared. what does it matter, anyway? ", target: "node_shop" },
                     { text: "god, it's real chilly out here tonight.", target: "node_shop" }
+                ]
+            },
+            node_out_gift: {
+                text: "<p> October in Leh. Nearly November, in fact. It is already dark out, and the chill was knifing through the air across your cheeks. you had on a white cotton top and a suede jacket: enough for a winter back home, not here. you can here me commenting on your inability to calibrate your wardrobe for the cold even when it had already been over six months here. </p> <p> you smile to yourself. if you hadn't been in such a hurry, you would have dressed better for the cold, but then again, it came down to time management. you could practically hear me say it all. </p>",
+                choices: [
+                    { text: "well, he's kind of right. i just don't like it that he is so smug about it. oh, what the hell.", target: "node_shopgift" },
+                    { text: "he knows me for what, six years now? he knows i am going to be late or ill-dressed or otherwise unprepared. what does it matter, anyway? ", target: "node_shopgift" },
+                    { text: "god, it's real chilly out here tonight.", target: "node_shopgift" }
                 ]
             },
             node_shop: {
