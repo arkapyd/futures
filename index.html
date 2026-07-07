@@ -124,7 +124,7 @@
                 ]
             },
             node_nothing: {
-                text: "it is so late already. you like it when i joke about your tardiness and call you my babysloth, and the like, but sometimes you can sense that you test my patience with your habit of never being on time. <p> no more of that, you think, as you rush out the door, hurriedly locking it, and bracing to go out into the chill of the October night in Leh. </p> ",
+                text: "it is so late already. you like it when i joke about your tardiness and call you my babysloth, and the like, but sometimes you can sense that you test my patience with your habit of never being on time. <p> no more of that, you think, as you rush out the door, hurriedly locking it behind you. </p> ",
                 choices: [
                     { text: "it's...cold outside.", target: "node_out" }
                 ]
@@ -143,7 +143,22 @@
                     { text: "i think i am forgetting something. agh. can't help it, i am late! time to go.", target: "node_out" }
                 ]
             },
-            
+            node_out: {
+                text: "<p> October in Leh. Nearly November, in fact. It is already dark out, and the chill was knifing through the air across your cheeks. you had on a white cotton top and a suede jacket: enough for a winter back home, not here. you can here me commenting on your inability to calibrate your wardrobe for the cold even when it had already been over six months here. </p> <p> you smile to yourself. if you hadn't been in such a hurry, you would have dressed better for the cold, but then again, it came down to time management. you could practically hear me say it all. </p>",
+                choices: [
+                    { text: "well, he's kind of right. i just don't like it that he is so smug about it. oh, what the hell.", target: "node_shop" },
+                    { text: "he knows me for what, six years now? he knows i am going to be late or ill-dressed or otherwise unprepared. what does it matter, anyway? ", target: "node_shop" },
+                    { text: "god, it's real chilly out here tonight.", target: "node_shop" }
+                ]
+            },
+            node_shop: {
+                text: "<p> October in Leh. Nearly November, in fact. It is already dark out, and the chill was knifing through the air across your cheeks. you had on a white cotton top and a suede jacket: enough for a winter back home, not here. you can here me commenting on your inability to calibrate your wardrobe for the cold even when it had already been over six months here. </p> <p> you smile to yourself. if you hadn't been in such a hurry, you would have dressed better for the cold, but then again, it came down to time management. you could practically hear me say it all. </p>",
+                choices: [
+                    { text: "well, he's kind of right. i just don't like it that he is so smug about it. oh, what the hell.", target: "node_shop" },
+                    { text: "he knows me for what, six years now? he knows i am going to be late or ill-dressed or otherwise unprepared. what does it matter, anyway? ", target: "node_shop" },
+                    { text: "god, it's real chilly out here tonight.", target: "node_shop" }
+                ]
+            },
         };
 
         // function to render the current node
