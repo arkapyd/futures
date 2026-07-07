@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for nistha</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
+
+        :root {
+            --bg-color: #08080a;
+            --text-primary: #ededed;
+            --text-secondary: #a0a0ab;
+            --accent: #5e5e6e;
+            --glow: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #game-container {
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #story-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            min-height: 120px;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        #choices-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .choice-btn {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--accent);
+            padding: 15px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: lowercase;
+        }
+
+        .choice-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+            box-shadow: 0 0 15px var(--glow);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="story-text"></div>
+        <div id="choices-container"></div>
+    </div>
+
+    <script>
+        // this object holds the entire story tree
+        const storyData = {
+            start: {
+                text: "the midnight rain in bengaluru taps gently against the glass. the room is entirely quiet, save for the faint glow of the city lights bleeding through the blinds. a sleek, black envelope rests on the table in front of you.",
+                choices: [
+                    { text: "open the envelope", target: "node_open" },
+                    { text: "leave it and walk to the window", target: "node_window" },
+                    { text: "turn off the final light", target: "node_dark" }
+                ]
+            },
+            
+            // iteration 1 placeholders
+            node_open: {
+                text: "inside is a single, heavy card. the handwriting is instantly familiar.",
+                choices: [
+                    { text: "read it now", target: "start" }, // temporarily looping back
+                    { text: "put it in your pocket", target: "start" },
+                    { text: "burn it", target: "start" }
+                ]
+            },
+            node_window: {
+                text: "you step toward the glass. down on the street, someone is looking up right at you.",
+                choices: [
+                    { text: "step back into the shadows", target: "start" },
+                    { text: "open the window", target: "start" },
+                    { text: "stare back", target: "start" }
+                ]
+            },
+            node_dark: {
+                text: "the room plunges into absolute darkness. suddenly, you hear a soft click from the door.",
+                choices: [
+                    { text: "hold your breath", target: "start" },
+                    { text: "ask who's there", target: "start" },
+                    { text: "move towards the sound", target: "start" }
+                ]
+            }
+        };
+
+        // function to render the current node
+        function renderNode(nodeId) {
+            const node = storyData[nodeId];
+            const storyEl = document.getElementById('story-text');
+            const choicesEl = document.getElementById('choices-container');
+
+            // fade out
+            storyEl.style.opacity = 0;
+            choicesEl.style.opacity = 0;
+
+            // wait for fade out to complete before swapping text
+            setTimeout(() => {
+                storyEl.innerHTML = node.text;
+                choicesEl.innerHTML = '';
+
+                if (node.choices && node.choices.length > 0) {
+                    node.choices.forEach(choice => {
+                        const btn = document.createElement('button');
+                        btn.className = 'choice-btn';
+                        btn.innerText = choice.text;
+                        btn.onclick = () => renderNode(choice.target);
+                        choicesEl.appendChild(btn);
+                    });
+                }
+
+                // fade back in
+                storyEl.style.opacity = 1;
+                choicesEl.style.opacity = 1;
+            }, 400); // matches the 0.4s css transition
+        }
+
+        // initialize the story
+        window.onload = () => renderNode('start');
+    </script>
+</body>
+</html>
