@@ -8,15 +8,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
 
         :root {
-            --bg-color: #08080a;
-            --text-primary: #ededed;
-            --text-secondary: #a0a0ab;
-            --accent: #5e5e6e;
-            --glow: rgba(255, 255, 255, 0.08);
+            --bg-color: #0a0406; /* deeper, subtly red-tinted black */
+            --text-primary: #f2ecee; /* soft off-white */
+            --text-secondary: #8a7c80; /* muted mauve-grey */
+            --accent: #3d1422; /* dim dark pink/burgundy for resting borders */
+            --hover-bg: #80133b; /* intense dark pink */
+            --hover-text: #ffffff; /* stark white for sharp contrast */
+            --glow: rgba(220, 20, 80, 0.25); /* urgent red/pink glow */
         }
 
         body {
             background-color: var(--bg-color);
+            /* subtle dark vignette for an enclosed, urgent feel */
+            background: radial-gradient(circle at center, #0a0406 40%, #000000 100%);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             display: flex;
@@ -26,6 +30,21 @@
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
+        }
+
+        /* custom scrollbar to match the theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--hover-bg);
         }
 
         #game-container {
@@ -57,20 +76,26 @@
             border: 1px solid var(--accent);
             padding: 15px 20px;
             font-family: 'Inter', sans-serif;
-            font-size: clamp(0.95rem, 1vw, 1.1rem); /* slightly responsive button text */
+            font-size: clamp(0.95rem, 1vw, 1.1rem);
             letter-spacing: 0.5px;
             cursor: pointer;
             border-radius: 4px;
-            transition: all 0.3s ease;
+            /* slightly faster transition to build tension */
+            transition: all 0.15s ease-out;
             text-transform: lowercase;
             width: 100%;
-            max-width: 700px; /* prevents buttons from stretching too wide */
+            max-width: 700px;
         }
+
         .choice-btn:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
-            box-shadow: 0 0 15px var(--glow);
+            background-color: var(--hover-bg);
+            color: var(--hover-text);
+            border-color: var(--hover-bg);
+            /* aggressive outer glow combined with a dark inner shadow */
+            box-shadow: 0 0 20px var(--glow), inset 0 0 10px rgba(0,0,0,0.3);
             transform: translateY(-2px);
+            /* subtle text expansion on hover for urgency */
+            letter-spacing: 1px; 
         }
     </style>
 </head>
