@@ -29,16 +29,16 @@
         }
 
         #game-container {
-            max-width: 650px;
-            width: 100%;
+            max-width: 1200px; /* significantly widens the layout */
+            width: 92%; /* leaves a small, clean margin on the very edges */
             text-align: center;
         }
 
         #story-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-size: clamp(1.6rem, 2.2vw, 2.4rem); /* makes text scale up dynamically on larger screens */
             line-height: 1.6;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             min-height: 120px;
             transition: opacity 0.4s ease-in-out;
         }
@@ -46,6 +46,7 @@
         #choices-container {
             display: flex;
             flex-direction: column;
+            align-items: center; /* keeps the buttons centered in the new, wider container */
             gap: 15px;
             transition: opacity 0.4s ease-in-out;
         }
@@ -56,14 +57,15 @@
             border: 1px solid var(--accent);
             padding: 15px 20px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            font-size: clamp(0.95rem, 1vw, 1.1rem); /* slightly responsive button text */
             letter-spacing: 0.5px;
             cursor: pointer;
             border-radius: 4px;
             transition: all 0.3s ease;
             text-transform: lowercase;
+            width: 100%;
+            max-width: 700px; /* prevents buttons from stretching too wide */
         }
-
         .choice-btn:hover {
             color: var(--text-primary);
             border-color: var(--text-primary);
